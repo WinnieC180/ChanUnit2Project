@@ -34,7 +34,7 @@ public LinearEquation(int x1, int y1, int x2, int y2) {
        (x2, y2), rounded to the nearest hundredth */
 
     public double yIntercept() {
-        return roundedToHundredth((double) y1 - (slope()*x1));
+        return roundedToHundredth((double) y1 - (roundedToHundredth(slope())*x1));
     }
 
 
@@ -117,7 +117,8 @@ public LinearEquation(int x1, int y1, int x2, int y2) {
     /* Returns a String of the coordinate point on the line that has the given x value, with
        both x and y coordinates as decimals to the nearest hundredth, e.g (-5.0, 6.75) */
     public String coordinateForX(double xValue) {
-        return "";
+        double y = (slope() * xValue) + yIntercept();
+        return "The point on the line is (" + xValue + ", " + roundedToHundredth(y) + ")";
     }
 
 
@@ -148,7 +149,11 @@ public LinearEquation(int x1, int y1, int x2, int y2) {
 
       */
     public String lineInfo() {
-        return "";
+        return "The two points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")"
+                + "\nThe equation of the line between these points is: " + equation()
+                + "\nThe slope of this line is: " + roundedToHundredth(slope())
+                + "\nThe y-intercept of the line is: " + yIntercept()
+                + "\nThe distance between the two points is: " + distance();
     }
 
 }
