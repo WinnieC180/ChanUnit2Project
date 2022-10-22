@@ -1,4 +1,3 @@
-import javax.sound.sampled.Line;
 import java.util.Scanner;
 
 public class LinearEquationRunner {
@@ -19,15 +18,19 @@ public class LinearEquationRunner {
         int index1 = coord1.indexOf(",");
         int index2 = coord2.indexOf(",");
 
+        //getting the x points as ints.
         int x1 = Integer.parseInt(coord1.substring(1, index1));
         int x2 = Integer.parseInt(coord2.substring(1, index2));
 
+        /* Need to find the index of space and not , for the y points because
+        the Integer.parseInt can't change a space into an int */
         index1 = coord1.indexOf(" ");
         index2 = coord2.indexOf(" ");
 
         int y1 = Integer.parseInt(coord1.substring(index1+1, coord1.length()-1));
         int y2 = Integer.parseInt(coord2.substring(index2+1, coord2.length()-1));
 
+        // if statement will make it so an object will not be created if the x points are the same
         if (x1 == x2) {
             System.out.println();
             System.out.println("These points are on a vertical line: x = " + x1);
@@ -47,3 +50,4 @@ public class LinearEquationRunner {
         scan.close();
     }
 }
+
